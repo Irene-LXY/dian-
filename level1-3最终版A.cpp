@@ -1,37 +1,33 @@
 #include <stdio.h>
-#include<string.h>
 
 int main()
 {
-	//³õÊ¼»¯ 
-	char x[1];
+	//åˆå§‹åŒ–
+	int z; 
+	char x;
 	int a,b,c;
-	printf("ÇëÊäÈë»õÎïÖÖÀà:");
-	gets(x);
-	printf("ÇëÊäÈëÍ¨µÀÊı¡¢µ¥¼Û¡¢»õÎï¸öÊı£º\n");
-	scanf("%d %d %d",&a,&b,&c);
-	//¿ªÊ¼¹ºÂò 
-	while(c>=0)
+	printf("è¯·è¾“å…¥è´§ç‰©ç§ç±»ã€è¯·è¾“å…¥é€šé“æ•°ã€å•ä»·ã€è´§ç‰©ä¸ªæ•°:");
+	scanf("%c %d %d %d",&x,&a,&b,&c);
+	while ((z = getchar()) != '\n' && z != EOF);
+	//å¼€å§‹è´­ä¹° 
+	while(c>0)
 	{
-		//Ñ¡ÔñÊÇ·ñ¹ºÂò
+		//é€‰æ‹©æ˜¯å¦è´­ä¹°
 		int choice;
-		printf("¹ºÂòÇë°´1£¬ÍË³öÇë°´2\n");
+		printf("è´­ä¹°è¯·æŒ‰1ï¼Œé€€å‡ºè¯·æŒ‰2\n");
 		scanf("%d",&choice);
+		while ((z = getchar()) != '\n' && z!= EOF);
 		if(choice==1)
-		{	
-			
-			char y[1];
+		{		
+			char y;
 	        int m,n;	
-			printf("ÇëÑ¡Ôñ¹ºÂò»õÎïÖÖÀà£º\n");
-			gets(y);
-			printf("ÇëÊäÈëÍ¨µÀÊı¡¢¹ºÂò¸öÊı£º\n");
-			scanf("%d %d",&m,&n);
-	        //ÊäÈëÕıÈ·£¬ÔòÌø³öÏÂÁĞÑ­»· 
-	        
-			//¿ªÊ¼ÕÒÁã 
-			if(strcmp(x,y)==0&&n>c&&a==m)
+			printf("è¯·é€‰æ‹©è´­ä¹°è´§ç‰©ç§ç±»ã€é€šé“æ•°ã€è´­ä¹°ä¸ªæ•°ï¼š\n");
+			scanf("%c %d %d",&y,&m,&n);
+			while ((z = getchar()) != '\n' && z != EOF);
+			//å¼€å§‹æ‰¾é›¶ 
+			if(x==y&&n<=c&&a==m)
 			{
-			printf("Çë¿ªÊ¼Í¶±Ò£º\n");
+			printf("è¯·å¼€å§‹æŠ•å¸ï¼š\n");
 	    	int price=b*n;
 	    	int bill=0;
 	    	while(bill<price)
@@ -44,33 +40,31 @@ int main()
 		        }
 	            else
 		        {
-		        printf("ÊäÈë´íÎó\n");
-		        break;
-		        }
-                
+		        printf("è¾“å…¥é”™è¯¯\n");
+		        continue;
+		        }    
 			}
-            printf("Ó¦ÕÒÄú%dÔª\n",bill-price);
+            printf("åº”æ‰¾æ‚¨%då…ƒ\n",bill-price);
             c=c-n;
-            }
+            printf("è¿˜å‰©ä½™%dä»¶å­˜é‡",c);
+            }      
             else
 	        {
-	        	printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë£¡\n");
-	        	return 0;
-			}
-       	
-       	
+	        	printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥ï¼\n");
+	        	continue;
+			}   
+			    	
 	    }
 	    if(choice==2)
        		{
-			printf("ÆÚ´ıÄúÏÂ´Î¹âÁÙ\n");
+			printf("æœŸå¾…æ‚¨ä¸‹æ¬¡å…‰ä¸´\n");
        		break;
        	    }
-       	else
+       	else if(choice!=1&&choice!=2)
        		{
-			printf("ÊäÈë´íÎó\n");
-       		break;
-       	    }
-		
+			printf("è¾“å…¥é”™è¯¯\n");
+       		continue;
+       	    }		
 	}
 		return 0;
 }
